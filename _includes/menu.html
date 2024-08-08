@@ -1,28 +1,28 @@
 <nav>
-{%- for item in include.menu -%}
-  {%- assign node = site.pages | where: "name", item.file | first -%}
-  {%- assign url = item.url | default: node.url -%}
-  {%- assign title = item.title | default: node.title -%}
-  <div class="nav-item">
-    <a href="{{ url | relative_url }}" {% if url == page.url %}class="selected"{% endif %}>
-      {%- if item.icon -%}
-      <svg aria-label="{{ title }}" class="icon">
-        <use xlink:href="{{ "/assets/fontawesome/icons.svg" | relative_url }}#{{ item.icon }}"></use>
-      </svg>
-      {%- else -%}
-        {{ title }}
+  {%- for item in include.menu -%}
+    {%- assign node = site.pages | where: "name", item.file | first -%}
+    {%- assign url = item.url | default: node.url -%}
+    {%- assign title = item.title | default: node.title -%}
+    <div class="nav-item">
+      <a href="{{ url | relative_url }}" {% if url == page.url %}class="selected"{% endif %}>
+        {%- if item.icon -%}
+          <svg aria-label="{{ title }}" class="icon">
+            <use xlink:href="{{ "/assets/fontawesome/icons.svg" | relative_url }}#{{ item.icon }}"></use>
+          </svg>
+        {%- else -%}
+          {{ title }}
+        {%- endif -%}
+      </a>
+      {%- if item.submenu -%}
+        <div class="dropdown">
+          {%- for subitem in item.submenu -%}
+            {%- assign subnode = site.pages | where: "name", subitem.file | first -%}
+            {%- assign suburl = subitem.url | default: subnode.url -%}
+            {%- assign subtitle = subitem.title | default: subnode.title -%}
+            <a href="{{ suburl | relative_url }}">{{ subtitle }}</a>
+          {%- endfor -%}
+        </div>
       {%- endif -%}
-    </a>
-    {%- if item.submenu -%}
-      <div class="dropdown">
-        {%- for subitem in item.submenu -%}
-          {%- assign subnode = site.pages | where: "name", subitem.file | first -%}
-          {%- assign suburl = subitem.url | default: subnode.url -%}
-          {%- assign subtitle = subitem.title | default: subnode.title -%}
-          <a href="{{ suburl | relative_url }}">{{ subtitle }}</a>
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
-  </div>
-{%- endfor -%}
+    </div>
+  {%- endfor -%}
 </nav>
