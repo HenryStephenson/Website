@@ -41,8 +41,10 @@
   {% endif %}
   
   <header>
-    <a class="hero-image" href="{{ "/" | relative_url }}" class="title">{{ site.title | escape }}</a>
-    {% include menu.html menu=pages %}
+    <div class="hero-image">
+      <a href="{{ "/" | relative_url }}" class="title">{{ site.title | escape }}</a>
+      {% include menu.html menu=pages %}
+    </div>
   </header>
   
   {{ content }}
