@@ -1,28 +1,75 @@
-<nav>
-  {%- for item in include.menu -%}
-    {%- assign node = site.pages | where: "name", item.file | first -%}
-    {%- assign url = item.url | default: node.url -%}
-    {%- assign title = item.title | default: node.title -%}
-    <div class="nav-item">
-      <a href="{{ url | relative_url }}" {% if url == page.url %}class="selected"{% endif %}>
-        {%- if item.icon -%}
-          <svg aria-label="{{ title }}" class="icon">
-            <use xlink:href="{{ "/assets/fontawesome/icons.svg" | relative_url }}#{{ item.icon }}"></use>
-          </svg>
-        {%- else -%}
-          {{ title }}
+<head>
+  <style>
+    .hero-image
+    {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../hero.png");
+      height: 50%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+    
+    .hero-text
+    {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+    }
+    
+    .hero-text button {
+      border: none;
+      outline: 0;
+      display: inline-block;
+      padding: 10px 25px;
+      color: black;
+      background-color: #ddd;
+      text-align: center;
+      cursor: pointer;
+    }
+    
+    .hero-text button:hover
+    {
+      background-color: #555;
+      color: white;
+    }
+  </style>
+</head>
+
+
+<div class="hero-image">
+  <nav>
+    {%- for item in include.menu -%}
+      {%- assign node = site.pages | where: "name", item.file | first -%}
+      {%- assign url = item.url | default: node.url -%}
+      {%- assign title = item.title | default: node.title -%}
+      <div class="nav-item">
+        <a href="{{ url | relative_url }}" {% if url == page.url %}class="selected"{% endif %}>
+          {%- if item.icon -%}
+            <svg aria-label="{{ title }}" class="icon">
+              <use xlink:href="{{ "/assets/fontawesome/icons.svg" | relative_url }}#{{ item.icon }}"></use>
+            </svg>
+          {%- else -%}
+            {{ title }}
+          {%- endif -%}
+        </a>
+        {%- if item.submenu -%}
+          <div class="dropdown">
+            {%- for subitem in item.submenu -%}
+              {%- assign subnode = site.pages | where: "name", subitem.file | first -%}
+              {%- assign suburl = subitem.url | default: subnode.url -%}
+              {%- assign subtitle = subitem.title | default: subnode.title -%}
+              <a href="{{ suburl | relative_url }}">{{ subtitle }}</a>
+            {%- endfor -%}
+          </div>
         {%- endif -%}
-      </a>
-      {%- if item.submenu -%}
-        <div class="dropdown">
-          {%- for subitem in item.submenu -%}
-            {%- assign subnode = site.pages | where: "name", subitem.file | first -%}
-            {%- assign suburl = subitem.url | default: subnode.url -%}
-            {%- assign subtitle = subitem.title | default: subnode.title -%}
-            <a href="{{ suburl | relative_url }}">{{ subtitle }}</a>
-          {%- endfor -%}
-        </div>
-      {%- endif -%}
-    </div>
-  {%- endfor -%}
-</nav>
+      </div>
+    {%- endfor -%}
+  </nav>
+</div>
+
+
+
