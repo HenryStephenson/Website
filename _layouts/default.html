@@ -78,7 +78,9 @@
 
 <header>
   <a href="{{ "/" | relative_url }}" class="title">{{ site.title | escape }}</a>
-  {% include menu.html menu=pages %}
+  <div class="hero-image">
+    {% include menu.html menu=pages %}
+  </div>
 </header>
 
 {{ content }}
