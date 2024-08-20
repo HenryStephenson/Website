@@ -53,12 +53,14 @@
   
  
   
-   <header>
-     <div class="hero-image">
-       <a href="{{ "/" | relative_url }}" class="title">{{ site.title | escape }}</a>
-       {% include menu.html menu=pages %}
-      </div>
-   </header>
+
+  <div class="hero-image">
+    <header>
+      <a href="{{ "/" | relative_url }}" class="title">{{ site.title | escape }}</a>
+     {% include menu.html menu=pages %}
+    </header>
+  </div>
+
   
   
   {{ content }}
