@@ -68,7 +68,7 @@
   {{ content }}
   
   {% if site.external %}
-    <footer>
+    <footer style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;">
       <div>{{ site.description | default: site.title }}</div>
       {% include menu.html menu=site.external %}
     </footer>
