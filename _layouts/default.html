@@ -68,7 +68,7 @@
       <nav style="flex: 1;">
         <a href="{{ "/" | relative_url }}" class="title">{{ site.title | escape }}</a>
       </nav>
-      <div style="flex: 1; display: flex; justify-content: flex-end;">
+      <div  style="width: 45%; flex: 1; display: flex; justify-content: flex-end;">
         {% include menu.html menu=pages %}
       </div>
     </header>
@@ -79,7 +79,7 @@
   
   {% if site.external %}
     <footer style="padding: 1.5em 2.5em; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;">
-      <div>{{ site.description | default: site.title }}</div>
+      <div style="width: 45%;">{{ site.description | default: site.title }}</div>
       {% include menu.html menu=site.external %}
     </footer>
   {% endif %}
