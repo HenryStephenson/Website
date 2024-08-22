@@ -1,4 +1,4 @@
-<nav style="width: 50%;">
+<nav style="width: 45%;">
   {%- for item in include.menu -%}
     {%- assign node = site.pages | where: "name", item.file | first -%}
     {%- assign url = item.url | default: node.url -%}
