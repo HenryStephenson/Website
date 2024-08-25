@@ -25,10 +25,12 @@ title: "Home"
     .DropdownDiv
     {
       text-align: justify;
+      display: none;
     }
     .DropdownPoint
     {
       margin-top: 0;
+      cursor: pointer;
     }
     .DropdownPoint:hover
     {
@@ -58,17 +60,20 @@ title: "Home"
     research experiences below.
     <br>
     <br>
-    <p class="DropdownPoint" onclick="OpenDropdown()">Dorval Laboratory</p>
-    <div id="DropdownDiv">This is info on the Dorval Lab</div>
+    <p class="DropdownPoint" onclick="OpenDropdown(this)">Dorval Laboratory</p>
+    <div class="DropdownDiv">This is info on the Dorval Lab</div>
+    
+    <p class="DropdownPoint" onclick="OpenDropdown(this)">McGill iGEM Laboratory</p>
+    <div class="DropdownDiv">This is info on the McGill iGEM Lab</div>
   </p>
   {% include photo-gallery.html %}
 </article>
 
 <script>
-  function OpenDropdown() 
+  function OpenDropdown(element) 
   {
-    var x = document.getElementsByClassName("DropdownDiv");
-    if (x.style.display === "none") 
+    var x = element.nextElementSibling;
+    if (x.style.display === "none" || x.style.display === "") 
     {
       x.style.display = "block";
     } 
