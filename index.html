@@ -21,6 +21,11 @@ title: "Home"
       font-size: 1.1em;
       margin-top: 0;
     }
+
+    #DropdownDiv
+    {
+      text-align: jutify
+    }
   </style>
 </head>
 
@@ -40,7 +45,28 @@ title: "Home"
     <br>
     I've worked in three laboratories during my undergraduate studies: the <a style="border-bottom:2px dotted;" href="https://www.dorvallab.com/">Dorval Lab 
     of Biomaterials and Biodevices</a>, the <a style="border-bottom:2px dotted;" href="https://2023.igem.wiki/mcgill/">McGill iGEM Laboratory</a>, and the 
-    <a style="border-bottom:2px dotted;" href="https://lmp.utoronto.ca/faculty/mario-ostrowski">Ostrowski Lab</a> at U of T. 
+    <a style="border-bottom:2px dotted;" href="https://lmp.utoronto.ca/faculty/mario-ostrowski">Ostrowski Lab</a> at U of T. More recently, I've also completed
+    an internship at <a style="border-bottom:2px dotted;" href="https://nomic.bio/">Nomic Bio</a> on their Assay Engineering and R&D Team. Learn more about my
+    research experiences below.
+    <br>
+    <br>
+    <p onclick="OpenDropdown()">Dorval Laboratory</p>
+    <div id="DropdownDiv">This is info on the Dorval Lab</div>
   </p>
   {% include photo-gallery.html %}
 </article>
+
+<script>
+  function OpenDropdown() 
+  {
+    var x = document.getElementById("DropdownDiv");
+    if (x.style.display === "none") 
+    {
+      x.style.display = "block";
+    } 
+    else 
+    {
+      x.style.display = "none";
+    }
+  }
+</script>
