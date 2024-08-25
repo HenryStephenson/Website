@@ -22,9 +22,13 @@ title: "Home"
       margin-top: 0;
     }
 
-    #DropdownDiv
+    .DropdownDiv
     {
       text-align: justify
+    }
+    .DropdownDiv:hover
+    {
+      reduce
     }
   </style>
 </head>
@@ -59,7 +63,7 @@ title: "Home"
 <script>
   function OpenDropdown() 
   {
-    var x = document.getElementById("DropdownDiv");
+    var x = document.getElementsByClassName("DropdownDiv");
     if (x.style.display === "none") 
     {
       x.style.display = "block";
