@@ -57,7 +57,7 @@ navigation:                # accepts {file, title, url, icon, sidebaricon}
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
   - {title: Mail, icon: envelope, url: "mailto:stephensonhenry.03@gmail.com"}
-  - {title: Github, icon: github, url: "https://github.com/henrystephenson/"}
+  - {title: Github, icon: github, url: "https://github.com/HenryStephenson/henrystephenson.github.io.git"}
 
 comments:
 #  disqus_shortname: ""    # see https://disqus.com/
